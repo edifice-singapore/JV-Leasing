@@ -38,8 +38,8 @@ class Clients extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, name, nick, address, postalcode, nric, birthdate, nationality, res_tel, ofc_tel, mobile, email, company, designation, drvlicense_passdate', 'required'),
-			array('id', 'numerical', 'integerOnly'=>true),
+			array('name, nick, address, postalcode, nric, birthdate, nationality, res_tel, ofc_tel, mobile, email, company, designation, drvlicense_passdate', 'required'),
+			//array('id', 'numerical', 'integerOnly'=>true),
 			array('name, address, company, designation', 'length', 'max'=>100),
 			array('nick, nationality', 'length', 'max'=>30),
 			array('postalcode, nric', 'length', 'max'=>10),
@@ -47,7 +47,7 @@ class Clients extends CActiveRecord
 			array('email', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, nick, address, postalcode, nric, birthdate, nationality, res_tel, ofc_tel, mobile, email, company, designation, drvlicense_passdate', 'safe', 'on'=>'search'),
+			array('name, nick, address, postalcode, nric, birthdate, nationality, res_tel, ofc_tel, mobile, email, company, designation, drvlicense_passdate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,7 +68,7 @@ class Clients extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			//'id' => 'ID',
 			'name' => 'Name',
 			'nick' => 'Nick',
 			'address' => 'Address',
@@ -104,7 +104,7 @@ class Clients extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
+		//$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('nick',$this->nick,true);
 		$criteria->compare('address',$this->address,true);

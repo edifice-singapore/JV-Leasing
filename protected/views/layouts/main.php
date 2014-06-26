@@ -40,8 +40,8 @@
 						'linkOptions'=>array('id'=>'menuClients'),
 						'itemOptions'=>array('id'=>'itemClients'),
 						'items'=> array(
-								array('label'=>'RENEWAL','url'=>array('site/client_renew')),
-								array('label'=>'ADD NEW CLIENT','url'=>array('site/add_client'))
+								array('label'=>'RENEWAL','url'=>array('clients/index')),
+								array('label'=>'ADD NEW CLIENT','url'=>array('clients/create'))
 							),
 						'visible'=>!Yii::app()->user->isGuest,	
 					),

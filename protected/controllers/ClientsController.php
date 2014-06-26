@@ -36,7 +36,7 @@ class ClientsController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','renew'),
 				'users'=>array('admin','bryan'),
 			),
 			array('deny',  // deny all users
@@ -122,10 +122,16 @@ class ClientsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Clients');
+		//Default index
+		/*$dataProvider=new CActiveDataProvider('Clients');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+		));*/
+
+		//Redirect index to renew
+		$this->actionRenew();
+
+
 	}
 
 	/**
@@ -142,6 +148,48 @@ class ClientsController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	// For renewals
+	public function actionRenew()
+	{
+// For Grid	    
+		$dataProvider=new CActiveDataProvider('Clients');
+		/*$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));*/
+
+
+// For input 
+	    $model=new Clients;
+
+	    // uncomment the following code to enable ajax-based validation
+	    /*
+	    if(isset($_POST['ajax']) && $_POST['ajax']==='clients-renew-form')
+	    {
+	        echo CActiveForm::validate($model);
+	        Yii::app()->end();
+	    }
+	    */
+
+	    if(isset($_POST['Clients']))
+	    {
+	        $model->attributes=$_POST['Clients'];
+	        if($model->validate())
+	        {
+	            // form inputs are valid, do something here
+	            return;
+	        }
+	    }
+
+
+
+	    $this->render('renew',array('model'=>$model, 
+	    							'dataProvider'=>$dataProvider));
+
+
+	}
+
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

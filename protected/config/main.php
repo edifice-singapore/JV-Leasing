@@ -57,6 +57,8 @@ return array(
 	*/
 		// uncomment the following to use a MySQL database
 		
+		//for local settings
+		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=_jvleasing',
 			'emulatePrepare' => true,
@@ -64,7 +66,23 @@ return array(
 			'password' => 'rootadmin',
 			'charset' => 'utf8',
 		),
+
+
+		//for developmental settings
+		/*
+		'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=jvs_jvleasing',
+			'emulatePrepare' => true,
+			'username' => 'jvs_root',
+			'password' => 'jvs12312',
+			'charset' => 'utf8',
+		),*/
 		
+
+
+
+
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',

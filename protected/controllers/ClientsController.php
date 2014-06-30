@@ -170,6 +170,7 @@ class ClientsController extends Controller
 	        Yii::app()->end();
 	    }
 	    */
+		
 
 	    if(isset($_POST['Clients']))
 	    {

@@ -14,8 +14,6 @@ $this->breadcrumbs=array(
 	*/
 	?>
 
-<h3>Add <span style="color:#254078">New Clients</span></h3>
-<br />
-<h6>Personal Particulars</h6>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

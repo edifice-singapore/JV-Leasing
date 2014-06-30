@@ -17,8 +17,7 @@ $this->menu=array(
 
 ?>
 
-<h3>Due for <span style="color:#254078">Renewal</span></h3>
-<br />
+
 
 <?php 
 

@@ -62,6 +62,10 @@ class ClientsController extends Controller
 	 */
 	public function actionCreate()
 	{
+		// For Grid	    
+		$dataProvider=new CActiveDataProvider('Clients');
+		$dpDriverparticular=new CActiveDataProvider('Driverparticular');
+
 		$model=new Clients;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -74,10 +78,14 @@ class ClientsController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		
+		$this->render('create',array('model'=>$model, 
+	    							'dataProvider'=>$dataProvider,
+	    							'dpDriverparticular'=>$dpDriverparticular ));
 	}
+
+	
+
 
 	/**
 	 * Updates a particular model.

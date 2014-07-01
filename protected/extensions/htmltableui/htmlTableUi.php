@@ -288,9 +288,11 @@ class HtmlTableUi extends CWidget
 		// 2. Get Rows based on Data arProvider
 		unset($rows);
 		$arRecords = $arProvider->getData();
+		$rows = array();
 		foreach($arRecords as $record){
 			$rows[]=$record->attributes;
 		}
+		
 		return $rows;		
 	}
 	

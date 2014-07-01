@@ -16,4 +16,6 @@ $this->breadcrumbs=array(
 
 
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,
+									'dataProvider'=>$dataProvider,
+									'dpDriverparticular'=>$dpDriverparticular )); ?>

@@ -11,7 +11,9 @@ return array(
 	'defaultController' => 'site/login', 
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log','htmltableui'),
+	// preloading with extensions
+	//'preload'=>array('log','htmltableui'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -38,7 +40,12 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			
 		),
+
+		//'htmlTableUi'=>array('class'=>'ext.htmlTableUi'),
+		
+
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
@@ -87,6 +94,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -110,4 +118,7 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+
+
+
 );

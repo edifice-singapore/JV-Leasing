@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<!--jQuery dependencies-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>    
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<!--PQ Grid files-->
+    <link rel="stylesheet" href="pqgrid.min.css" />
+    <script src="pqgrid.min.js"></script>
+<!--PQ Grid Office theme-->
+    <link rel="stylesheet" href="themes/office/pqgrid.css" />
+
+<script>
+    $(function () {
+    //load countries using Ajax Call
+    var arrCountries = [];
+    $.ajax({ url: "demos/getCountries", success: function (response) { arrCountries = response.split(","); } });
+ 
+    //define editors
+    var dateEditor = function (ui) {
+        var $cell = ui.$cell, data = ui.data, rowIndx = ui.rowIndxPage, colIndx = ui.colIndx;
+        var dc = $.trim(data[rowIndx][colIndx]);
+        $cell.css('padding', '0');
+ 
+        var $inp = $("<input type='text' style='padding:2px;border:0;vertical-align:bottom;width:64px;'/>")
+        .appendTo($cell)
+        .val(dc).datepicker({
+            //showOn: "button",
+            //buttonImage: "../Content/images/calendar.png",
+            //buttonImageOnly: true,
+            changeMonth: true,
+            changeYear:true,
+            onClose: function () {
+                $inp.focus();
+            }
+        }); //.focus();
+    }
+    var dropDownEditor = function (ui, arr) {
+        var $cell = ui.$cell, data = ui.data, rowIndx = ui.rowIndxPage, colIndx = ui.colIndx;
+        var dataCell = $.trim(data[rowIndx][colIndx]);
+        var str = "";
+        for (var i = 0; i < arr.length; i++) {
+            if (dataCell == arr[i])
+                str += "<option selected>" + arr[i] + "</option>";
+            else
+                str += "<option>" + arr[i] + "</option>";
+        }
+        var $sel = $("<select>" + str + "</select>")
+        .appendTo($cell);
+    }
+    var saveCell = function (ui) {
+        var $cell = ui.$cell;
+        return $cell.children().val();
+    }
+ 
+    var colM = [
+    { title: "ShipCountry", width: 140, editor: function (ui) {
+        //debugger;
+        dropDownEditor(ui, arrCountries);
+    }, getEditCellData: saveCell
+    },
+    { title: "Customer Name", width: 100
+        //,editModel: {saveKey:27}//escape
+    },
+    { title: "Order ID", width: 100, editable:false },
+    { title: "Order Date", width: "100", editor: dateEditor, getEditCellData: saveCell },
+    { title: "Required Date", width: 100, editor: dateEditor, getEditCellData: saveCell },
+    { title: "Shipped Date", width: 100, editor: dateEditor, getEditCellData: saveCell },
+    { title: "Shipping Via", width: 110,
+        editor: function (ui) {
+            var arr = ['', 'Speedy Express', 'United Package', 'Federal Shipping'];
+            dropDownEditor(ui, arr);
+        },
+        getEditCellData: saveCell
+    },
+    { title: "Freight", width: 100, align: "right" },
+    { title: "Shipping Name", width: 160 },
+    { title: "Shipping Address", width: 300 },
+    { title: "Shipping City", width: 100 },
+    { title: "Shipping Region", width: 100 },
+    { title: "Shipping PostalCode", width: 100 }
+    ];
+    var dataModel = {
+        location: "remote",
+        sorting: "remote",
+        paging: "remote",
+        dataType: "JSON",
+        method: "GET",
+        curPage: 1,
+        rPP: 20,
+        sortIndx: 0,
+        sortDir: "up",
+        rPPOptions: [1, 10, 20, 30, 40, 50, 100, 500, 1000],
+        getUrl: function () {
+            var sortDir = (this.sortDir == "up") ? "asc" : "desc";
+            var sort = ['ShipCountry', 'contactName', 'orderID', 'OrderDate', 'RequiredDate', 'ShippedDate',
+                'ShipVia', 'Freight', 'ShipName', 'ShipAddress', 'ShipCity', 'ShipRegion', 'ShipPostalCode'];
+            return { url: "../demos/pagingGetOrders", data: "cur_page=" + this.curPage +
+                "&records_per_page=" + this.rPP + "&sortBy=" + sort[this.sortIndx] + "&dir=" + sortDir
+            };
+        },
+        getData: function (dataJSON) {
+            //this.curPage = dataJSON.curPage;
+            //this.totalPages = dataJSON.totalPages;
+            return { curPage: dataJSON.curPage, totalRecords: dataJSON.totalRecords, data: dataJSON.data };
+        }
+    }
+    var grid1 = $("div#grid_custom_editing").pqGrid({ width: 900, height: 350,
+        title: "Shipping Orders <b>(Custom editing)</b>",
+        dataModel: dataModel,
+        colModel: colM,
+        hoverMode: 'cell' ,    
+        selectionModel: { type: 'cell' },    
+        editModel: { saveKey: '13' },
+        resizable: true,
+        columnBorders: true,
+        freezeCols: 2
+    });
+    grid1.on("pqgridquiteditmode", function (evt, ui) {
+        //exclude esc and tab           
+        if (evt.keyCode != 27 && evt.keyCode != 9) {
+            grid1.pqGrid("saveEditCell");
+        }
+    });
+    grid1.on("pqgridcellsave", function (evt, ui) {                       
+        var cols = ["scountry","custname","orderid","orderdate","requireddate"];
+        var data = ui.data, rowIndxPage = ui.rowIndxPage, dataIndx = ui.dataIndx, val = data[rowIndxPage][dataIndx];
+        var orderID = data[rowIndxPage][2];
+        var url = "../Demos/saveRecord?orderID=" + orderID+"&fieldname="+cols[dataIndx]+"&value="+val;
+        $.ajax({ url: url });
+    });
+});
+        
+</script>    
+</head>
+<body>
+<div id="grid_custom_editing" style="margin:100px;"></div>
+</body>
+
+</html>

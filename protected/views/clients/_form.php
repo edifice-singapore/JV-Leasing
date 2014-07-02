@@ -653,29 +653,234 @@
             </tr>
             
         </table>
-        <?php 
-            		$columnsArray = array('criteria'=>array('columns'=>array('dp_id','dp_Name')));
-            		$this->widget('ext.htmltableui.htmlTableUi',array(
-				    'arProvider'=>$dpDriverparticular,    
-				    'collapsed'=>false,
-				    'columns'=>$columnsArray,
-				    'cssFile'=>'',
-				    'editable'=>true,
-				    'enableSort'=>true,
-				   // 'exportUrl'=>'site/exportTable',
-				    //'extra'=>'Additional Information',
-				    'footer'=>'Total rows: ',
-				    'formTitle'=>"Driver's Particulars",
-				   // 'rows'=>$rowsArray,
-				    'sortColumn'=>1,
-				    'sortOrder'=>'desc',
-				    //'subtitle'=>'Rev 1.3.5',
-				    'title'=>"Driver's Particulars",
-				)); 
+        
+          <?php  
+                //Load the script ParamQuery
+                //Yii::app()->clientScript->registerCoreScript('grid-master/pqgrid.min.js'); 
+                //Yii::app()->clientScript->registerCoreScript('jquery.ui');
+                
+                //$path = Yii::app()->assetManager->publish(Yii::getPathOfAlias('application.components'));
+                //Yii::app()->clientScript->registerCssFile($path . '/addons/grid-master/pqgrid.min.css', 'screen, projection');
+                //Yii::app()->clientScript->registerScriptFile($path.'/addons/grid-master/pqgrid.min.js');
+          ?>
+          <?php
+			      $this->widget('ext.jqgrid.JqGrid', array(
+			       'options' => array('url'=>'server.php?q=1',
+			       						'datatype' =>"xml",
+			       					
+			        
+								       'colNames' => array('Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'), 
+								       
+								       'colModel' => array( array('name'=>'id','index'=>'id', 'width'=>'55'), 
+										       			  array('name'=>'invdate','index'=>'invdate','width'=>'90'), 
+										       			  array('name'=>'name','index'=>'name', 'width'=>'100'), 
+										       			  array('name'=>'amount','index'=>'amount', 'width'=>'80', 'align'=>'right'), 
+										       			  array('name'=>'tax','index'=>'tax','width'=>'80', 'align'=>'right'), 
+										       			  array('name'=>'total','index'=>'total','width'=>'80','align'=>'right'), 
+										       			  array('name'=>'note','index'=>'note', 'width'=>'150', 'sortable'=>'false') 
+								       			 	), 
 
-            	?>
+			        'rowNum' => 5, 
+			        ),
+			        'rowList' => array(5,10,20), 
+			       	'pager' => '#pcustbut', 
+			       	'sortname' => 'id', 
+			       	'viewrecords' => true, 
+			       	'sortorder' => "desc", 
+
+			       	'height' => '100%', 
+			       	'caption' => "Custom Buttons and forms"
+			   ));
+ 
+   
+			
+				//Yii::app()->clientScript->registerScript('cancelCreateInductionTemplate', $js, CClientScript::POS_READY);
+			?>
+			
+
+			
     </div><!-- .wrapper --> 
 	
+    <div>
+    	<fieldset width="100%"> 
+				<legend>Driver's Particular</legend> 
+				<table>
+				<tr>
+					<td>
+						<table cellpadding="0" cellspacing="0" style="" class="form">
+		                        <tr>
+		                            <td colspan="2"><h6>Driver</h6></td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  Name:</td>
+		                            <td><?php echo $form->textField($model,'dpDrverName',array('size'=>30,'maxlength'=>100)); ?>
+										<?php echo $form->error($model,'dpDrverName'); ?>
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  IC No.:</td>
+		                            <td><?php echo $form->textField($model,'dpDrverICno',array('size'=>30,'maxlength'=>100)); ?>
+										<?php echo $form->error($model,'dpDrverICno'); ?>
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  Occ.:</td>
+		                            <td><?php echo $form->textField($model,'dpDrverOcc',array('size'=>30,'maxlength'=>100)); ?>
+										<?php echo $form->error($model,'dpDrverOcc'); ?>
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  <br />Date of Birth:</td>
+		                            <td>
+		                                <?php
+										$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+										    'name'=>'dpDateofBirth',
+										    'id'=>'dpDateBirth',
+										    'value'=>date('d/m/Y'),    
+										    'options'=>array(
+										        'showAnim'=>'clip',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+										        'showButtonPanel'=>false,
+										        'changeMonth'=>true,
+		        								'changeYear'=>true,
+										        'showOtherMonths'=>true,// Show Other month in jquery
+		        								'selectOtherMonths'=>true,// Select Other month in jquery
+		        								'yearRange'=>'1920:2099',
+										    ),
+										    'htmlOptions'=>array(
+										        'style'=>''
+										    ),
+										));
+										?>
+										<?php $form->error($model, 'dpDateBirth'); ?>
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  <br />License Pass Date:</td>
+		                            <td>
+		                                <?php
+										$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+										    'name'=>'dpLicensePassDate',
+										    'id'=>'dpDrverLcnsePass',
+										    'value'=>date('d/m/Y'),    
+										    'options'=>array(
+										        'showAnim'=>'clip',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+										        'showButtonPanel'=>false,
+										        'changeMonth'=>true,
+		        								'changeYear'=>true,
+										        'showOtherMonths'=>true,// Show Other month in jquery
+		        								'selectOtherMonths'=>true,// Select Other month in jquery
+		        								'yearRange'=>'1920:2099',
+										    ),
+										    'htmlOptions'=>array(
+										        'style'=>''
+										    ),
+										));
+										?>
+										<?php $form->error($model, 'dpDrverLcnsePass'); ?>
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  <br />Marital Status:</td>
+		                            <td>
+		                                <?php
+		                                echo $form->dropDownList($model,'dpDrverMarStat',array('0'=>'--- Choose Type ---','1'=>'Single','2'=>'Married',
+			                                						'3'=>'Divorced'), 
+			                                					array('options' => array('0'=>array('selected'=>true)))
+			                                					);
+										?>
+										<?php echo $form->error($model,'dpDrverMarStat'); ?>
+		                    		</td>
+		                        </tr>
+		                        <tr>
+		                            <td width="200">  Gender:</td>
+		                            <td><?php 
+										
+		                            	echo $form->radioButtonList($model, 'dpGender',
+					                    array(  1 => 'Male',
+					                            2 => 'Female'),
+					                    array( 'separator' => "")); // choose your own separator </td>
+
+				                    ?>
+				                    <?php $form->error($model, 'dpGender'); ?>
+		                        </tr>
+		                </table>
+                	</td>
+            		<td width="%" style="padding: 10px 20px; vertical-align: top;">
+	                    <table cellpadding="0" cellspacing="0" style="width: 440px;" class="form">
+	                        <tr>
+	                            <td colspan="2"><h6>&nbsp;</h6></td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200"> <br />Relationship:</td>
+	                            <td><input name="" type="text" class="textfield" /></td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200">  <br />Nationality:</td>
+	                            <td>
+	                                <?php 
+		                                echo $form->dropDownList($model,'dpNationality',array('0'=>'--- Choose Type ---','1'=>'Singaporean','2'=>'American',
+		                                						'3'=>'Filipino'), 
+		                                					array('options' => array('0'=>array('selected'=>true)))
+		                                					);
+		                               
+										echo $form->error($model,'dpNationality'); 
+
+									?>
+									<?php $form->error($model, 'dpNationality'); ?>
+	                    		</td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200">  Wage:</td>
+	                            <td><?php echo $form->textField($model,'dpWage',array('size'=>30,'maxlength'=>100)); ?>
+									<?php echo $form->error($model,'dpWage'); ?>
+								</td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200"> <br />Remarks:</td>
+	                            <td><?php echo $form->textArea($model, 'dpRemarks', array('maxlength' => 300, 'rows' => 6, 'cols' => 23)); ?>
+	                            	<?php $form->error($model, 'dpRemarks'); ?>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200">Ref:</td>
+	                            <td><?php echo $form->textField($model,'dpRef',array('size'=>30,'maxlength'=>100)); ?>
+									<?php echo $form->error($model,'dpRef'); ?>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td width="200">Month:</td>
+	                            <td><?php 
+		                                echo $form->dropDownList($model,'dpMonth',array('0'=>'--- Choose Type ---',
+		                                	'1'=>'January','2'=>'Febuary',
+		                                	'3'=>'March','4'=>'April',
+		                                	'5'=>'May','6'=>'June',
+		                                	'7'=>'July','8'=>'August',
+		                                	'9'=>'September','10'=>'October',
+		                                	'11'=>'November','12'=>'December'),
+		                                	array('options' => array('0'=>array('selected'=>true)))
+		                  					);
+									?>
+	                                <?php echo $form->error($model,'dpMonth');  ?>
+
+	                    		</td>
+	                        </tr>
+	                        
+	                    </table>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="button" id="savedata" value="Add Driver" />
+					</td>
+					<td>&nbsp;</td> 
+					
+					
+				</tr>
+				</table>
+
+			</fieldset>
+    </div>
 
 <?php $this->endWidget(); ?>
 

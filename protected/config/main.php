@@ -43,7 +43,8 @@ return array(
 			
 		),
 
-		//'htmlTableUi'=>array('class'=>'ext.htmlTableUi'),
+
+		'jqgrid'=>array('class'=>'ext.jqgrid'),
 		
 
 		// uncomment the following to enable URLs in path-format

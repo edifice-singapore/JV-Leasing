@@ -42,7 +42,7 @@ return array(
 			'allowAutoLogin'=>true,
 			
 		),
-
+		
 
 		'jqgrid'=>array('class'=>'ext.jqgrid'),
 		

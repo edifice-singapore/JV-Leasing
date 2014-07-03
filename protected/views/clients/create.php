@@ -16,8 +16,20 @@ $this->breadcrumbs=array(
 
 
 
-<?php $this->renderPartial('_form', array('model'=>$model,
+<?php 
+	  Yii::import('ext.jqgrid.JqGrid');
+	  	$this->renderPartial('_form', array('model'=>$model,
 									'dataProvider'=>$dataProvider,
-									'dpDriverparticular'=>$dpDriverparticular )
-							); 
+									'dpDriverparticular'=>$dpDriverparticular,
+									//'jsonDriverParticular'=>json_encode($result),
+							));
+	  
+	  
+	  
+      
+
+
+		
+
+
 ?>

@@ -62,26 +62,40 @@ class ClientsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		// For Grid	    
-		$dataProvider=new CActiveDataProvider('Clients');
-		$dpDriverparticular=new CActiveDataProvider('Driverparticular');
+		
 
-		$model=new Clients;
+		$q = Yii::app()->request->getQuery('q'); 
+		if ($q == 1) {
+			$sql = 'select * FROM driverparticular';
+			$req = Yii::app()->db->createCommand($sql);
+			$result = $req->queryAll();
+			echo json_encode($result);
+		} else {
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+			// For Grid	    
+			$dataProvider=new CActiveDataProvider('Clients');
+			$dpDriverparticular=new CActiveDataProvider('Driverparticular');
 
-		if(isset($_POST['Clients']))
-		{
-			$model->attributes=$_POST['Clients'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$model=new Clients;
+
+			// Uncomment the following line if AJAX validation is needed
+			// $this->performAjaxValidation($model);
+
+			if(isset($_POST['Clients']))
+			{
+				$model->attributes=$_POST['Clients'];
+				if($model->save())
+					$this->redirect(array('view','id'=>$model->id));
+			}
+
+			
+			$this->render('create',array('model'=>$model, 
+		    							'dataProvider'=>$dataProvider,
+		    							'dpDriverparticular'=>$dpDriverparticular ));
+
 		}
 
-		
-		$this->render('create',array('model'=>$model, 
-	    							'dataProvider'=>$dataProvider,
-	    							'dpDriverparticular'=>$dpDriverparticular ));
+
 	}
 
 	
@@ -142,6 +156,7 @@ class ClientsController extends Controller
 
 	}
 
+	
 	/**
 	 * Manages all models.
 	 */

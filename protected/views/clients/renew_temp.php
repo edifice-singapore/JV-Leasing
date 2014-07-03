@@ -264,3 +264,177 @@
                         </tr>
                     </table>
                 </td>
+
+
+
+
+
+
+
+
+
+
+
+
+//Grid
+
+<?php
+			      $this->widget('ext.jqgrid.JqGrid', array(
+			       	id'=>'driverParticular',
+                    
+                    
+                    
+
+			       'options' => array(  'url'=>'create?q=1',
+			       						'datatype' =>"json",
+                                     	'colNames'=>array('ID','Name','IC No','OCC','Date of Birth','License Pass Date','Marital Status','Gender','Relationship','Nationality',
+                                     		'Wage','Remarks','Referrence','Month'),
+
+			        
+								       
+								       
+								       'colModel' => array( array('name'=>'dp_id','index'=>'dp_id'),
+                                                       		array('name'=>'dp_Name','index'=>'dp_Name','width'=>90),
+                                                       		array('name'=>'dp_icno','index'=>'dp_icno','width'=>100),
+                                                       		array('name'=>'dp_occ','index'=>'dp_occ','width'=>90),
+                                                       		array('name'=>'dp_dateBirth','index'=>'dp_dateBirth','width'=>90),
+                                                       		array('name'=>'dp_licPassDate','index'=>'dp_licPassDate','width'=>90),
+                                                       		array('name'=>'dp_maritalStatus','index'=>'dp_maritalStatus','width'=>90),
+                                                       		array('name'=>'dp_gender','index'=>'dp_gender','width'=>90),
+                                                       		array('name'=>'dp_relationship','index'=>'dp_relationship','width'=>90),
+                                                       		array('name'=>'dp_nationality','index'=>'dp_nationality','width'=>90),
+                                                       		array('name'=>'dp_wage','index'=>'dp_wage','width'=>90),
+                                                       		array('name'=>'dp_remarks','index'=>'dp_remarks','width'=>90),
+                                                       		array('name'=>'dp_ref','index'=>'dp_ref','width'=>90),
+                                                       		array('name'=>'dp_month','index'=>'dp_month','width'=>90),
+								       			 	), 
+
+			        					//'rowNum' => 5, 
+			        					'rowList' => array(5,10,20),
+								        'sortname' => 'id',  
+								       	'pager' => '#pcustbut', 
+								       	
+								       	'viewrecords' => true, 
+								       	'sortorder' => "desc", 
+
+								       	'height' => '100px', 
+								       	'width' => '200px',
+								       	'caption' => 'Driver Particulars',
+
+			        				)
+
+			   ));
+ 
+   
+			
+				//Yii::app()->clientScript->registerScript('cancelCreateInductionTemplate', $js, CClientScript::POS_READY);
+			?>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    	$(function () {
+			$("#driverParticular").jqGrid({ 
+	        	
+	        	url:'create?q=1',
+				datatype:"json",
+				colNames:['ID','Name','IC No','OCC','Date of Birth','License Pass Date','Marital Status','Gender','Relationship','Nationality','Wage','Remarks','Referrence','Month'],
+				colModel:[{name:'dp_id',index:'dp_id'},
+				       		{name:'dp_Name',index:'dp_Name',width:90},
+				       		{name:'dp_icno',index:'dp_icno',width:100},
+				       		{name:'dp_occ',index:'dp_occ',width:90},
+				       		{name:'dp_dateBirth',index:'dp_dateBirth',width:90},
+				       		{name:'dp_licPassDate',index:'dp_licPassDate',width:90},
+				       		{name:'dp_maritalStatus',index:'dp_maritalStatus',width:90},
+				       		{name:'dp_gender',index:'dp_gender',width:90},
+				       		{name:'dp_relationship',index:'dp_relationship',width:90},
+				       		{name:'dp_nationality',index:'dp_nationality',width:90},
+				       		{name:'dp_wage',index:'dp_wage',width:90},
+				       		{name:'dp_remarks',index:'dp_remarks',width:90},
+				       		{name:'dp_ref',index:'dp_ref',width:90},
+				       		{name:'dp_month',index:'dp_month',width:90},
+					 	], 
+				rowNum:5, 
+				rowList:[5,10,20],
+				sortname:'id',  
+				pager:'#pcustbut', 
+				viewrecords:true, 
+				sortorder:"desc", 
+				caption:'Driver Particulars',
+
+
+	        }),
+    	});
+
+    </script>
+
+
+
+
+
+
+
+    $(function () {
+			jQuery("#driverParticular").jqGrid({ 
+	        	url:'create?q=1',
+				datatype:"json",
+				colNames:['ID','Name','IC No','OCC','Date of Birth','License Pass Date','Marital Status','Gender','Relationship','Nationality','Wage','Remarks','Referrence','Month'],
+				colModel:[ {name:'dp_id',index:'dp_id'},
+				       		{name:'dp_Name',index:'dp_Name',width:90},
+				       		{name:'dp_icno',index:'dp_icno',width:100},
+				       		{name:'dp_occ',index:'dp_occ',width:90},
+				       		{name:'dp_dateBirth',index:'dp_dateBirth',width:90},
+				       		{name:'dp_licPassDate',index:'dp_licPassDate',width:90},
+				       		{name:'dp_maritalStatus',index:'dp_maritalStatus',width:90},
+				       		{name:'dp_gender',index:'dp_gender',width:90},
+				       		{name:'dp_relationship',index:'dp_relationship',width:90},
+				       		{name:'dp_nationality',index:'dp_nationality',width:90},
+				       		{name:'dp_wage',index:'dp_wage',width:90},
+				       		{name:'dp_remarks',index:'dp_remarks',width:90},
+				       		{name:'dp_ref',index:'dp_ref',width:90},
+				       		{name:'dp_month',index:'dp_month',width:90},
+					 	],
+				pager: '#pager2',  
+				rowNum:5, 
+				rowList:[5,10,20],
+				sortname:'id',  
+				pager:'#pcustbut', 
+				viewrecords:true, 
+				sortorder:"desc", 
+				caption:'Driver Particulars'	
+
+
+	        }),
+
+	jQuery("#driverParticular").jqGrid('navGrid','#pager2',{ edit:true, add:true, del:true});
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

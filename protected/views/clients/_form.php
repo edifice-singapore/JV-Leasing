@@ -663,39 +663,7 @@
                 //Yii::app()->clientScript->registerCssFile($path . '/addons/grid-master/pqgrid.min.css', 'screen, projection');
                 //Yii::app()->clientScript->registerScriptFile($path.'/addons/grid-master/pqgrid.min.js');
           ?>
-          <?php
-			      $this->widget('ext.jqgrid.JqGrid', array(
-			       'options' => array('url'=>'server.php?q=1',
-			       						'datatype' =>"xml",
-			       					
-			        
-								       'colNames' => array('Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'), 
-								       
-								       'colModel' => array( array('name'=>'id','index'=>'id', 'width'=>'55'), 
-										       			  array('name'=>'invdate','index'=>'invdate','width'=>'90'), 
-										       			  array('name'=>'name','index'=>'name', 'width'=>'100'), 
-										       			  array('name'=>'amount','index'=>'amount', 'width'=>'80', 'align'=>'right'), 
-										       			  array('name'=>'tax','index'=>'tax','width'=>'80', 'align'=>'right'), 
-										       			  array('name'=>'total','index'=>'total','width'=>'80','align'=>'right'), 
-										       			  array('name'=>'note','index'=>'note', 'width'=>'150', 'sortable'=>'false') 
-								       			 	), 
-
-			        'rowNum' => 5, 
-			        ),
-			        'rowList' => array(5,10,20), 
-			       	'pager' => '#pcustbut', 
-			       	'sortname' => 'id', 
-			       	'viewrecords' => true, 
-			       	'sortorder' => "desc", 
-
-			       	'height' => '100%', 
-			       	'caption' => "Custom Buttons and forms"
-			   ));
- 
-   
-			
-				//Yii::app()->clientScript->registerScript('cancelCreateInductionTemplate', $js, CClientScript::POS_READY);
-			?>
+          
 			
 
 			
@@ -706,11 +674,98 @@
 				<legend>Driver's Particular</legend> 
 				<table>
 				<tr>
+					<td colspan="2">
+						<?php
+						   $this->widget('ext.jqgrid.JqGrid', array(
+						      	'id'=>'drivrParticular',
+							    'options' => array( 'height' => '0px')
+						   ));
+						?>
+						<script type="text/javascript">
+
+					    	$(function () {
+					    	
+							jQuery("#driverParticular").jqGrid({ 
+							            theme: '',
+							            url:'create?q=1',
+							            datatype: "json", 
+							            colNames:['ID','Name','IC No','OCC','Date of Birth','License Pass Date','Marital Status','Gender','Relationship','Nationality','Wage','Remarks','Referrence','Month'],
+										colModel:[ {name:'dp_id',index:'dp_id',width: 15,align: 'center'},
+										       		{name:'dp_Name',index:'dp_Name',width:90},
+										       		{name:'dp_icno',index:'dp_icno',width:100},
+										       		{name:'dp_occ',index:'dp_occ',width:90},
+										       		{name:'dp_dateBirth',index:'dp_dateBirth',width:90, hidden: true},
+										       		{name:'dp_licPassDate',index:'dp_licPassDate',width:90},
+										       		{name:'dp_maritalStatus',index:'dp_maritalStatus',width:90, hidden: true},
+										       		{name:'dp_gender',index:'dp_gender',width:90, hidden: true},
+										       		{name:'dp_relationship',index:'dp_relationship',width:90, hidden: true},
+										       		{name:'dp_nationality',index:'dp_nationality',width:90, hidden: true},
+										       		{name:'dp_wage',index:'dp_wage',width:90, hidden: true},
+										       		{name:'dp_remarks',index:'dp_remarks',width:90, hidden: true},
+										       		{name:'dp_ref',index:'dp_ref',width:90, hidden: true},
+										       		{name:'dp_month',index:'dp_month',width:90},
+											],
+							            	pager: '#pager2',  
+											rowNum:5, 
+											rowList:[5,10,20],
+											sortname:'id',  
+											shrinkToFit: true,
+											viewrecords:true, 
+											sortorder:"desc", 
+											caption:'Driver Particulars',
+											width: '800',
+											height: 100,
+											onSelectRow: function(){
+												//Get row Data:
+												var myGrid = $('#driverParticular'),
+											    selRowId = myGrid.jqGrid ('getGridParam', 'selrow'),
+											    
+											    dp_id = myGrid.jqGrid ('getCell', selRowId, 'dp_id');
+											    dp_Name = myGrid.jqGrid ('getCell', selRowId, 'dp_Name');
+											    
+												dp_icno = myGrid.jqGrid ('getCell', selRowId, 'dp_icno');
+												dp_occ = myGrid.jqGrid ('getCell', selRowId, 'dp_occ');
+												dp_dateBirth = myGrid.jqGrid ('getCell', selRowId, 'dp_dateBirth');
+												dp_licPassDate = myGrid.jqGrid ('getCell', selRowId, 'dp_licPassDate');
+												dp_maritalStatus = myGrid.jqGrid ('getCell', selRowId, 'dp_maritalStatus');
+												dp_gender = myGrid.jqGrid ('getCell', selRowId, 'dp_gender');	
+												dp_relationship = myGrid.jqGrid ('getCell', selRowId, 'dp_relationship');	
+												dp_nationality = myGrid.jqGrid ('getCell', selRowId, 'dp_nationality');	
+												dp_wage = myGrid.jqGrid ('getCell', selRowId, 'dp_wage');	
+												dp_remarks = myGrid.jqGrid ('getCell', selRowId, 'dp_remarks');	
+												dp_ref = myGrid.jqGrid ('getCell', selRowId, 'dp_ref');	
+												dp_month = myGrid.jqGrid ('getCell', selRowId, 'dp_month');						 
+												$('#dpDrverName').val(dp_Name);						
+												//alert(dp_Name);
+											},
+
+											
+							        }); 
+
+							 jQuery("#driverParticular").jqGrid('navGrid',
+							                            '#pager2',
+							                            {
+							                                edit:true,
+							                                add:true,
+							                                del:true
+							                            });
+
+
+							
+							});
+
+					    </script>
+
+
+
+						<table id='driverParticular'></table>
+						<div id="pager2"></div>
+
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<table cellpadding="0" cellspacing="0" style="" class="form">
-		                        <tr>
-		                            <td colspan="2"><h6>Driver</h6></td>
-		                        </tr>
 		                        <tr>
 		                            <td width="200">  Name:</td>
 		                            <td><?php echo $form->textField($model,'dpDrverName',array('size'=>30,'maxlength'=>100)); ?>
@@ -806,16 +861,14 @@
 		                </table>
                 	</td>
             		<td width="%" style="padding: 10px 20px; vertical-align: top;">
-	                    <table cellpadding="0" cellspacing="0" style="width: 440px;" class="form">
+	                    <table cellpadding="0" cellspacing="0" style="" class="form">
+	                        
 	                        <tr>
-	                            <td colspan="2"><h6>&nbsp;</h6></td>
-	                        </tr>
-	                        <tr>
-	                            <td width="200"> <br />Relationship:</td>
+	                            <td width="100"> <br />Relationship:</td>
 	                            <td><input name="" type="text" class="textfield" /></td>
 	                        </tr>
 	                        <tr>
-	                            <td width="200">  <br />Nationality:</td>
+	                            <td width="100">  <br />Nationality:</td>
 	                            <td>
 	                                <?php 
 		                                echo $form->dropDownList($model,'dpNationality',array('0'=>'--- Choose Type ---','1'=>'Singaporean','2'=>'American',
@@ -830,25 +883,25 @@
 	                    		</td>
 	                        </tr>
 	                        <tr>
-	                            <td width="200">  Wage:</td>
+	                            <td width="100">  Wage:</td>
 	                            <td><?php echo $form->textField($model,'dpWage',array('size'=>30,'maxlength'=>100)); ?>
 									<?php echo $form->error($model,'dpWage'); ?>
 								</td>
 	                        </tr>
 	                        <tr>
-	                            <td width="200"> <br />Remarks:</td>
+	                            <td width="100"> <br />Remarks:</td>
 	                            <td><?php echo $form->textArea($model, 'dpRemarks', array('maxlength' => 300, 'rows' => 6, 'cols' => 23)); ?>
 	                            	<?php $form->error($model, 'dpRemarks'); ?>
 	                            </td>
 	                        </tr>
 	                        <tr>
-	                            <td width="200">Ref:</td>
+	                            <td width="100">Ref:</td>
 	                            <td><?php echo $form->textField($model,'dpRef',array('size'=>30,'maxlength'=>100)); ?>
 									<?php echo $form->error($model,'dpRef'); ?>
 	                            </td>
 	                        </tr>
 	                        <tr>
-	                            <td width="200">Month:</td>
+	                            <td width="100">Month:</td>
 	                            <td><?php 
 		                                echo $form->dropDownList($model,'dpMonth',array('0'=>'--- Choose Type ---',
 		                                	'1'=>'January','2'=>'Febuary',
@@ -867,6 +920,9 @@
 	                        
 	                    </table>
 					</td>
+					<td>
+						
+					</td>
 				</tr>
 
 				<tr>
@@ -881,6 +937,9 @@
 
 			</fieldset>
     </div>
+	
+
+    
 
 <?php $this->endWidget(); ?>
 

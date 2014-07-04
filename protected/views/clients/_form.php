@@ -735,8 +735,8 @@
 												dp_remarks = myGrid.jqGrid ('getCell', selRowId, 'dp_remarks');	
 												dp_ref = myGrid.jqGrid ('getCell', selRowId, 'dp_ref');	
 												dp_month = myGrid.jqGrid ('getCell', selRowId, 'dp_month');						 
-												$('#dpDrverName').val(dp_Name);						
-												//alert(dp_Name);
+												$('#Clients_dpDrverName').val(dp_Name);						
+												$('#Clients_dpDrverICno').val(dp_icno);	
 											},
 
 											
@@ -936,6 +936,18 @@
 				</table>
 
 			</fieldset>
+
+			<?php foreach($driversModel as $driversModels): 
+				echo $form->textField($driversModels,'dp_Name',array('size'=>30,'maxlength'=>100)); 
+			endforeach; 
+			?>
+
+			
+			<?php 
+				
+				$this->widget('CLinkPager', array('pages' => $pages));
+				//echo $pages->getCurrentPage();
+			?>
     </div>
 	
 

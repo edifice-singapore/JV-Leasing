@@ -77,6 +77,7 @@ class ClientsController extends Controller
 			$dpDriverparticular=new CActiveDataProvider('Driverparticular');
 
 			$model=new Clients;
+			$driversModel = new Driverparticular;
 
 			// Uncomment the following line if AJAX validation is needed
 			// $this->performAjaxValidation($model);
@@ -88,10 +89,25 @@ class ClientsController extends Controller
 					$this->redirect(array('view','id'=>$model->id));
 			}
 
+			// For Paginations
+			$criteria=new CDbCriteria();
+		    $count=driverparticular::model()->count($criteria);
+		    $pages=new CPagination($count);
+
+		    // results per page
+		    $pages->pageSize=10;
+		    $pages->applyLimit($criteria);
+		    $driversModel=driverparticular::model()->findAll($criteria);
+
+
+			//end of Paginations
 			
 			$this->render('create',array('model'=>$model, 
 		    							'dataProvider'=>$dataProvider,
-		    							'dpDriverparticular'=>$dpDriverparticular ));
+		    							'driversModel' => $driversModel,
+		         						'pages' => $pages,
+		    							'dpDriverparticular'=>$dpDriverparticular 
+		    							));
 
 		}
 

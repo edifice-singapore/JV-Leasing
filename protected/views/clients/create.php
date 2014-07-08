@@ -22,6 +22,7 @@ $this->breadcrumbs=array(
 									'dataProvider'=>$dataProvider,
 									'driversModel'=>$driversModel,
 		         					'pages' => $pages,
+		         					//'count'=> $count,
 									'dpDriverparticular'=>$dpDriverparticular,
 									//'jsonDriverParticular'=>json_encode($result),
 							));

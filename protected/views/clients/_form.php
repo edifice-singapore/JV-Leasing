@@ -670,97 +670,24 @@
     </div><!-- .wrapper --> 
 	
     <div>
+    	<script type="text/javascript">
+    	var dp_id;
+    	var arrDrverPart = [
+							{ dp_id:"",dp_Name:"",dp_icno:"",dp_occ:"",dp_dateBirth:"",dp_licPassDate:"",dp_maritalStatus:"",dp_gender:"",dp_relationship:"",dp_nationality:"",dp_wage:"",dp_remarks:"",dp_ref:"",dp_month:""},
+							];
+		
+		$('#addDriver').click(function(){
+			alert('');
+		});
+		
+    	</script>
+
+
     	<fieldset width="100%"> 
 				<legend>Driver's Particular</legend> 
 				<table>
 				<tr>
 					<td colspan="2">
-						<?php
-						   $this->widget('ext.jqgrid.JqGrid', array(
-						      	'id'=>'drivrParticular',
-							    'options' => array( 'height' => '0px')
-						   ));
-						?>
-						<script type="text/javascript">
-
-					    	$(function () {
-					    	
-							jQuery("#driverParticular").jqGrid({ 
-							            theme: '',
-							            url:'create?q=1',
-							            datatype: "json", 
-							            colNames:['ID','Name','IC No','OCC','Date of Birth','License Pass Date','Marital Status','Gender','Relationship','Nationality','Wage','Remarks','Referrence','Month'],
-										colModel:[ {name:'dp_id',index:'dp_id',width: 15,align: 'center'},
-										       		{name:'dp_Name',index:'dp_Name',width:90},
-										       		{name:'dp_icno',index:'dp_icno',width:100},
-										       		{name:'dp_occ',index:'dp_occ',width:90},
-										       		{name:'dp_dateBirth',index:'dp_dateBirth',width:90, hidden: true},
-										       		{name:'dp_licPassDate',index:'dp_licPassDate',width:90},
-										       		{name:'dp_maritalStatus',index:'dp_maritalStatus',width:90, hidden: true},
-										       		{name:'dp_gender',index:'dp_gender',width:90, hidden: true},
-										       		{name:'dp_relationship',index:'dp_relationship',width:90, hidden: true},
-										       		{name:'dp_nationality',index:'dp_nationality',width:90, hidden: true},
-										       		{name:'dp_wage',index:'dp_wage',width:90, hidden: true},
-										       		{name:'dp_remarks',index:'dp_remarks',width:90, hidden: true},
-										       		{name:'dp_ref',index:'dp_ref',width:90, hidden: true},
-										       		{name:'dp_month',index:'dp_month',width:90},
-											],
-							            	pager: '#pager2',  
-											rowNum:5, 
-											rowList:[5,10,20],
-											sortname:'id',  
-											shrinkToFit: true,
-											viewrecords:true, 
-											sortorder:"desc", 
-											caption:'Driver Particulars',
-											width: '800',
-											height: 100,
-											onSelectRow: function(){
-												//Get row Data:
-												var myGrid = $('#driverParticular'),
-											    selRowId = myGrid.jqGrid ('getGridParam', 'selrow'),
-											    
-											    dp_id = myGrid.jqGrid ('getCell', selRowId, 'dp_id');
-											    dp_Name = myGrid.jqGrid ('getCell', selRowId, 'dp_Name');
-											    
-												dp_icno = myGrid.jqGrid ('getCell', selRowId, 'dp_icno');
-												dp_occ = myGrid.jqGrid ('getCell', selRowId, 'dp_occ');
-												dp_dateBirth = myGrid.jqGrid ('getCell', selRowId, 'dp_dateBirth');
-												dp_licPassDate = myGrid.jqGrid ('getCell', selRowId, 'dp_licPassDate');
-												dp_maritalStatus = myGrid.jqGrid ('getCell', selRowId, 'dp_maritalStatus');
-												dp_gender = myGrid.jqGrid ('getCell', selRowId, 'dp_gender');	
-												dp_relationship = myGrid.jqGrid ('getCell', selRowId, 'dp_relationship');	
-												dp_nationality = myGrid.jqGrid ('getCell', selRowId, 'dp_nationality');	
-												dp_wage = myGrid.jqGrid ('getCell', selRowId, 'dp_wage');	
-												dp_remarks = myGrid.jqGrid ('getCell', selRowId, 'dp_remarks');	
-												dp_ref = myGrid.jqGrid ('getCell', selRowId, 'dp_ref');	
-												dp_month = myGrid.jqGrid ('getCell', selRowId, 'dp_month');						 
-												$('#Clients_dpDrverName').val(dp_Name);						
-												$('#Clients_dpDrverICno').val(dp_icno);	
-											},
-
-											
-							        }); 
-
-							 jQuery("#driverParticular").jqGrid('navGrid',
-							                            '#pager2',
-							                            {
-							                                edit:true,
-							                                add:true,
-							                                del:true
-							                            });
-
-
-							
-							});
-
-					    </script>
-
-
-
-						<table id='driverParticular'></table>
-						<div id="pager2"></div>
-
 					</td>
 				</tr>
 				<tr>
@@ -768,8 +695,8 @@
 						<table cellpadding="0" cellspacing="0" style="" class="form">
 		                        <tr>
 		                            <td width="200">  Name:</td>
-		                            <td><?php echo $form->textField($model,'dpDrverName',array('size'=>30,'maxlength'=>100)); ?>
-										<?php echo $form->error($model,'dpDrverName'); ?>
+		                            <td><?php //echo $form->textField($model,'dpDrverName',array('size'=>30,'maxlength'=>100)); ?>
+										<?php //echo $form->error($model,'dpDrverName'); ?>
 		                            </td>
 		                        </tr>
 		                        <tr>
@@ -857,6 +784,7 @@
 
 				                    ?>
 				                    <?php $form->error($model, 'dpGender'); ?>
+				                    </td>
 		                        </tr>
 		                </table>
                 	</td>
@@ -927,7 +855,7 @@
 
 				<tr>
 					<td>
-						<input type="button" id="savedata" value="Add Driver" />
+						<input type="button" id="addDriver" value="Add Driver" />
 					</td>
 					<td>&nbsp;</td> 
 					
@@ -945,7 +873,7 @@
 			
 			<?php 
 				
-				$this->widget('CLinkPager', array('pages' => $pages));
+				$this->widget('CLinkPager', array('pages' => $pages ));
 				//echo $pages->getCurrentPage();
 			?>
     </div>

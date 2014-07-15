@@ -28,7 +28,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'gii',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','192.168.123.54'),
+			'ipFilters'=>array('127.0.0.1','::1','192.168.1.34'),
 		),
 		
 	),
@@ -58,6 +58,9 @@ return array(
 			),
 		),
 		
+		
+
+
 	/*
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
@@ -66,25 +69,25 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		//for local settings
-		
+		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=_jvleasing',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'rootadmin',
+			'password' => '',
 			'charset' => 'utf8',
 		),
-
-
+		*/
+		
 		//for developmental settings
-		/*
+		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=jvs_jvleasing',
 			'emulatePrepare' => true,
 			'username' => 'jvs_root',
 			'password' => 'jvs12312',
 			'charset' => 'utf8',
-		),*/
+		),
 		
 
 

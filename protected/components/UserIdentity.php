@@ -16,7 +16,6 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	private $_id;
-
 	
 	public function authenticate()
 	{
@@ -47,13 +46,10 @@ class UserIdentity extends CUserIdentity
                 $this->_id = $users->id;
             }
             return !$this->errorCode;
-        }
+    }
         
-        public function getId() {
+    public function getId() {
             return $this->_id;
-        }
-
-
-
+    }
 
 }

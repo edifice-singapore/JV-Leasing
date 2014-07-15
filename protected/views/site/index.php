@@ -2,7 +2,7 @@
 /* @var $this SiteController */
 
 //$this->pageTitle=Yii::app()->name;
-$this->pageTitle="JV Leasing";
+$this->pageTitle="JV's Leasing";
 
 ?>
 

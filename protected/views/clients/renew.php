@@ -5,8 +5,7 @@
 ?>
 
 <div class="form">
-<br />
-<h3>Due for <span style="color:#254078">Renewal</span></h3>
+
 
 <?php 
 /*
@@ -20,7 +19,7 @@ $form=$this->beginWidget('CActiveForm', array(
 )); 
 */
 
-$this->widget('zii.widgets.grid.CGridView', array(
+/*$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'clients-grid',
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
@@ -31,7 +30,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'address',
 		'postalcode',
 		'nric',
-		/*
+		
 		'birthdate',
 		'nationality',
 		'res_tel',
@@ -41,13 +40,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'company',
 		'designation',
 		'drvlicense_passdate',
-		*/
-		/*array(
+		
+		array(
 			'class'=>'CButtonColumn',
-		),*/
+		),
 	),
 ));
-
+*/
 ?>
 
 

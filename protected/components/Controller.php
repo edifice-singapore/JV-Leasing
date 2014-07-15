@@ -21,10 +21,10 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	public $baseurl;
+	//public $baseurl;
 
-    public function beforeRender() {
+   /* public function beforeRender() {
             $this->baseurl = Yii::app()->request->baseUrl;
             return true;
-    }
+    }*/
 }

@@ -22,12 +22,19 @@
 	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css" />
 <?php
 	if(!Yii::app()->user->isGuest){ 
+
 ?>
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/dropdown.css" rel="stylesheet" type="text/css">
+		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/pagination.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reveal.css">	
+		
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+		<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		 
 		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.reveal.js"></script>
 		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/dropdown.js'></script> 
+		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.jqpagination.js'></script>
+
 <?php	
 	}
 ?>

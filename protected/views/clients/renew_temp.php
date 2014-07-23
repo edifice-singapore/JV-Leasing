@@ -976,3 +976,21 @@
 
    
     
+
+
+
+
+
+
+
+var ObjFields = { dpDrverName: $("#Clients_dpDrverName").val(), dpDrverICno: $("#Clients_dpDrverICno").val(),
+                                dpOcc: $("#Clients_dpDrverOcc").val(), dpDateBirth: $("#dpDateBirth").toString(),
+                                dplicPassDate: $("#dpDrverLcnsePass").toString(), dpMaritalStatus: $("#Clients_dpDrverMarStat").val(),
+                                dpgender: $("#Clients_dpGender").val(), dprelationship: $("#Clients_dpRelationship").val(),
+                                dpnationality: $("#Clients_dpNationality").val(), dpwage: $("#Clients_dpWage").val(),
+                                dpremarks: $("#Clients_dpRemarks").val(), dpref: $("Clients_dpRef").val(),
+                                dpMonth: $("#Clients_dpMonth").val(),
+
+                            };
+                            
+                var objFieldsRes = Iterator(ObjFields);

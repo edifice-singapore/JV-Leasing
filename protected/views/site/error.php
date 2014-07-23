@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 	'Error',
 );
 ?>
-<div class="wrapper">
+<div class="wrapper" >
 	<h2>Error <?php echo $code; ?></h2>
 
 	<div class="error">

@@ -28,10 +28,10 @@
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/pagination.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reveal.css">	
 		
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-		<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		 
-		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.reveal.js"></script>
+		
 		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/dropdown.js'></script> 
 		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.jqpagination.js'></script>
 
@@ -77,20 +77,20 @@
 			                    <ul>
 			                        <li><a href="#">Brokers</a>
 			                            <ul style="display:none">
-			                                <li><a href="brokersreport.html">Broker's Report</a></li>
-			                                <li><a href="#" class="big-link" data-reveal-id="addnewbroker" data-animation="none">Add New broker</a></li>
-			                                <li><a href="viewallbrokers.html">View all brokers</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/brokers/brokersreport.html">Broker's Report</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/brokers/create" >Add New broker</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/brokers/index">View all brokers</a></li>
 			                            </ul>
 			                        </li>
 			                    </ul>
 			                </div><!--End of .header-->
 			                <div id="header" style="right: 555px;">
 			                    <ul>
-			                        <li><a href="#" class="active">Clients</a>
+			                        <li><a href="#">Clients</a>
 			                            <ul style="display:none">
-			                                <li><a href="index">Renewal</a></li>
-			                                <li><a href="create" class="active">Add New client</a></li>
-			                                <li><a href="viewallclients.html">View all clients</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/index">Renewal</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/create" class="active">Add New client</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/viewallclients.html">View all clients</a></li>
 			                            </ul>
 			                        </li>
 			                    </ul>

@@ -17,34 +17,13 @@
  Listener for data-reveal-id attributes
 ----------------------------*/
 
-	$('a[data-reveal-id]').live('click', function(e) {
+	// $('a[data-reveal-id]').live('click', function(e) {
 
-		e.preventDefault();
+	// 	e.preventDefault();
+	// 	var modalLocation = $(this).attr('data-reveal-id');
+	// 	$('#'+modalLocation).reveal($(this).data());
 
-		var modalLocation = $(this).attr('data-reveal-id');
-
-		if( modalLocation == 'add-broker' ){
-
-			$('#form_broker-container').remove();
-			container = $('<div id="form_broker-container"></div>').appendTo('body');
-			$(container).load( app.baseUrl + '/index.php/broker/addForm',function(){
-				$('#'+modalLocation).reveal($(this).data());
-			});
-
-		}else if( modalLocation == 'edit-broker' ){
-
-			var brokers_id = $(this).attr('data-brokers_id');
-
-			$('#form_broker-container').remove();
-			container = $('<div id="form_broker-container"></div>').appendTo('body');
-			$(container).load( app.baseUrl + '/index.php/broker/editForm?brokers_id='+ brokers_id ,function(){
-				$('#'+modalLocation).reveal($(this).data());
-			});
-
-		}else{
-			$('#'+modalLocation).reveal($(this).data());
-		}
-	});
+	// });
 
 
 

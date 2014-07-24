@@ -11,6 +11,7 @@ class Broker extends CActiveRecord{
 	{
 	    return 'broker_id';
 	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -18,4 +19,5 @@ class Broker extends CActiveRecord{
 	{
 		return 'brokers';
 	}
+
 }

@@ -2,6 +2,7 @@
 
 class BrokerController extends Controller
 {
+
 	public $layout='//layouts/main';
 	public function actionAddForm()
 	{
@@ -25,7 +26,6 @@ class BrokerController extends Controller
 			$data['model']->contact = $broker->brokers_contact;
 			$data['model']->address = $broker->brokers_address;
 			$data['model']->email = $broker->brokers_email;
-
 			$data['action'] = 'edit';
 			$data['broker_id'] = $broker->brokers_id;
 

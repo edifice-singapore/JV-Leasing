@@ -6,45 +6,53 @@
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
-<!-- 
+<!--
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
- -->	
+ -->
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
-<!-- 	
+<!--
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
- -->	
+ -->
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css" />
 <?php
-	if(!Yii::app()->user->isGuest){ 
+	if(!Yii::app()->user->isGuest){
 
 ?>
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/dropdown.css" rel="stylesheet" type="text/css">
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/pagination.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reveal.css">	
-		
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reveal.css">
+
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 		<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		 
-		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.reveal.js"></script>
-		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/dropdown.js'></script> 
-		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.jqpagination.js'></script>
 
-<?php	
+		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.reveal.js"></script>
+		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/dropdown.js'></script>
+		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.jqpagination.js'></script>
+		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/main.js'></script>
+		<script type='text/javascript' src='<?php echo Yii::app()->request->baseUrl; ?>/js/lib.js'></script>
+
+<?php
 	}
 ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
+	<script type="text/javascript">
+	var app = {
+		baseUrl: '<?php echo Yii::app()->request->baseUrl; ?>'
+	}
+	</script>
 </head>
 
 <body>
 
 <?php if(!Yii::app()->user->isGuest){?>
-			
+
 				<div class="header_wrapper">
 					<div class="header">
 			        	<a href="index.html"><div class="logo"></div></a><!--End of .logo-->
@@ -78,8 +86,8 @@
 			                        <li><a href="#">Brokers</a>
 			                            <ul style="display:none">
 			                                <li><a href="brokersreport.html">Broker's Report</a></li>
-			                                <li><a href="#" class="big-link" data-reveal-id="addnewbroker" data-animation="none">Add New broker</a></li>
-			                                <li><a href="viewallbrokers.html">View all brokers</a></li>
+			                                <li><a href="#" class="big-link" data-reveal-id="add-broker" data-animation="none">Add New broker</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/broker/list">View all brokers</a></li>
 			                            </ul>
 			                        </li>
 			                    </ul>
@@ -103,7 +111,7 @@
 			                	<a href="#"><li>Settings</li></a>
 			                </ul>--><!--End of .nav-->
 			            </div><!--End of .navigation-->
-			                    
+
 			        </div><!--End of .header-->
 					<div class="leftbg"></div><!--End of .leftbg-->
 					<div class="rightbg"></div><!--End of .rightbg-->
@@ -112,10 +120,8 @@
 <?php } ?>
 
 	<div>&nbsp;</div>
-	
-	
+
 	<?php echo $content; ?>
-	
 
 
 	<div class="clear"></div>
@@ -126,7 +132,7 @@
 	            	401 Havelock Rd, #02-21A, Miramar Hotel, Singapore 169631&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tel: 6887 3113     Fax: 6887 3003
 	            	<div style="float:right">Copyright 漏 <?php echo date('Y'); ?> JV's Leasing  <a href="http://www.edifice.com.sg">Powered by Edifice</a></div>
 	            </div>
-			
+
 		</div><!-- footer -->
 	</div>
 

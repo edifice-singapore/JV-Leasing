@@ -2,9 +2,11 @@
 
 class PaginationController extends Controller
 {
+
+	public $layout='//layouts/column2';
+
 	public function actionClient()
 	{
-		
 		$this->render('client');
 	}
 

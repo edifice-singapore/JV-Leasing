@@ -722,7 +722,8 @@
                 <td style="padding: 30px 40px 0 0">
                     
                 <img id="addDriverBtn" src="<?php echo Yii::app()->request->baseUrl.'/images/btn_add2.png'; ?>" style="cursor: pointer" onClick="addDrivers()" />
-                <img id="editDriverBtn" src="<?php echo Yii::app()->request->baseUrl.'/images/btn_edit.png'; ?>" style="cursor: pointer" onClick="editDriver()" />    
+
+                <img id="editDriverBtn" src="<?php echo Yii::app()->request->baseUrl.'/images/btn_edit.png'; ?>" style="cursor: pointer" onClick="editDrivers()" />    
                      
                 
                 </td>
@@ -954,9 +955,9 @@
 
  <!--- Driver's Particular ---->
 <?php  
-$baseUrl = Yii::app()->baseUrl; 
-$cs = Yii::app()->getClientScript();
-$cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
+    $baseUrl = Yii::app()->baseUrl; 
+    $cs = Yii::app()->getClientScript();
+    $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
 ?>
     <script type="text/javascript">
 
@@ -980,14 +981,12 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
             var count = 0;
             var records = new Array(objFields.length);
 
-            
-           
-
 
             $(function() {
               var maxpage = arrdpDrverName.length > 0 ? arrdpDrverName.length : 0;  
               //clear all fields, set all defaults
               $( "#driversParticularDialog" ).hide();
+              $("#editDriverBtn").hide();
               $("#Clients_dpDrverICno").val('');
               $("#Clients_dpDrverOcc").val('');
               //$("#Clients_dpDateBirth").val('');
@@ -1012,8 +1011,8 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
             function paginate(p){
                 $('.pagination').jqPagination({
                     max_page: p,
+                    page_string: 'Record   {current_page} of {max_page}',
                     paged: function(page) {
-                        alert(page);
                        getDriverDetails(page-1);
                     },
                     current_page: p,
@@ -1071,6 +1070,8 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
                 allFields = $( [] ).add(DGdpDrverName).add(DGdpDrverICno).add(dgDriverOcc).add(dgDateBirth).add(dpDrverLcnsePassDG).add(DGdpDrverMarStat).add(DGdpGender).add(DGdpRelationship).add(DGdpNationality).add(DGdpWage).add(DGdpRemarks).add(DGdpRef).add(DGdpMonth);
                 allFields.removeClass( "ui-state-error" );
 
+
+
                 valid = valid && checkLength(DGdpDrverName, "Driver Name", 1, 100);
                 valid = valid && checkLength(DGdpDrverICno, "Driver IC No.", 1, 50);
                 valid = valid && checkLength(dgDriverOcc, "Driver OCC No.", 1, 50);
@@ -1106,11 +1107,9 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
                     paginate(count+1);
                     getDriverDetails(count);
                     $("#driversParticularDialog").dialog("close");
+                    $("#editDriverBtn").show();
                 }
                 
-                
-                                
-
                count++;
                    
                return valid;
@@ -1173,17 +1172,49 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.jqpagination.js');
                         }
 
 
-                    
+                });
+                            
+            }
+
+            function editDrivers(){
+                
+                $( "#driversParticularDialog" ).dialog( {
+                    modal: true,
+                    width: "80%",
+                    draggable: false,
+                    resizable: false,
+                    dialogClass: 'ui-dialog-osx',
+                    buttons: {
+                        Save: function() {
+                                saveDrivers();
+                               
+                            },
+                        Cancel: function(){
+                            $(this).dialog("close");
+                        }
+                    },
+                    open: 
+                        function(){
+                            //alert(arrdpDrverName).index());
+
+                            $('#DGdpDrverName').val();
+                            $('#DGdpDrverICno').val('');
+                            $('#DGdpDrverOcc').val('');
+                            $('#dpDateBirthDG').val('');
+                            $('#dpDrverLcnsePassDG').val('');
+                            $('#DGdpDrverMarStat').val('');
+                            $('#DGdpRelationship').val('');
+                            $('#DGdpWage').val('');
+                            $('#DGdpRemarks').val('');
+                            $('#DGdpRef').val('');
+                            $('#DGdpMonth').val('');
+
+                        }
 
 
                 });
 
-                
-                    
-                
-                            
-            }; 
-
+            }
 
       
 

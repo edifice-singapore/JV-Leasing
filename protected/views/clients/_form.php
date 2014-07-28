@@ -725,6 +725,7 @@
 
                 <img id="editDriverBtn" src="<?php echo Yii::app()->request->baseUrl.'/images/btn_edit.png'; ?>" style="cursor: pointer" onClick="editDrivers()" />    
                      
+                <img id="removeDriverBtn" src="<?php echo Yii::app()->request->baseUrl.'/images/btn_remove.png'; ?>" style="cursor: pointer" onClick="removeDrivers()" />    
                 
                 </td>
 
@@ -750,8 +751,8 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <a href="#"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_add2.png" /></div></a>
-                    <a href="client_details2.html"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_upload.png" /></div></a>
+                  <!--  <a href="#"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_add2.png" /></div></a> ---->
+                    <a href="create?s=a"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_createclient.png" /></div></a>
                 </td>
             </tr>
             
@@ -987,6 +988,7 @@
               //clear all fields, set all defaults
               $( "#driversParticularDialog" ).hide();
               $("#editDriverBtn").hide();
+              $("#removeDriverBtn").hide();
               $("#Clients_dpDrverICno").val('');
               $("#Clients_dpDrverOcc").val('');
               //$("#Clients_dpDateBirth").val('');
@@ -1050,9 +1052,11 @@
             }
 
 
-            function saveDrivers(){
+            function saveDrivers(m){
                 
-                var valid = true,
+                var valid = true;
+                var mode = m;
+
                 DGdpDrverName = $("#DGdpDrverName"),
                 DGdpDrverICno = $("#DGdpDrverICno"),
                 dgDriverOcc = $("#DGdpDrverOcc"),
@@ -1089,33 +1093,59 @@
                 
                
                 if( valid ){
-                    arrdpDrverName[count] = $("#DGdpDrverName").val();
-                    arrdpDrverICno[count] = $("#DGdpDrverICno").val();
-                    arrdpDriverOcc[count] = $("#DGdpDrverOcc").val();
-                    arrdpDateBirth[count] = $("#dpDateBirthDG").val();
-                    arrdpDrverLcnsePassDG[count] = $("#dpDrverLcnsePassDG").val();
-                    arrdpDrverMarStat[count] = $("#DGdpDrverMarStat").val();
-                    arrdpGender[count] = $("#DGdpGender").val();
-                    arrdpRelationship[count] = $("#DGdpRelationship").val();
-                    arrdpNationality[count] = $("#DGdpNationality").val();
-                    arrdpWage[count] = $("#DGdpWage").val();
-                    arrdpRemarks[count] = $("#DGdpRemarks").val();
-                    arrdpRef[count] = $("#DGdpRef").val();
-                    arrdpMonth[count] = $("#DGdpMonth").val();
+                    
 
-                   // populateDrverName();
-                    paginate(count+1);
-                    getDriverDetails(count);
+                    if (mode == 'add'){
+                        arrdpDrverName[count] = $("#DGdpDrverName").val();
+                        arrdpDrverICno[count] = $("#DGdpDrverICno").val();
+                        arrdpDriverOcc[count] = $("#DGdpDrverOcc").val();
+                        arrdpDateBirth[count] = $("#dpDateBirthDG").val();
+                        arrdpDrverLcnsePassDG[count] = $("#dpDrverLcnsePassDG").val();
+                        arrdpDrverMarStat[count] = $("#DGdpDrverMarStat").val();
+                        arrdpGender[count] = $("#DGdpGender").val();
+                        arrdpRelationship[count] = $("#DGdpRelationship").val();
+                        arrdpNationality[count] = $("#DGdpNationality").val();
+                        arrdpWage[count] = $("#DGdpWage").val();
+                        arrdpRemarks[count] = $("#DGdpRemarks").val();
+                        arrdpRef[count] = $("#DGdpRef").val();
+                        arrdpMonth[count] = $("#DGdpMonth").val();
+                         paginate(count+1);
+                         getDriverDetails(count);
+                         count++;
+                    }
+                    if(mode == 'edit'){
+                        arrdpDrverName[arrNo] = $("#DGdpDrverName").val();
+                        arrdpDrverICno[arrNo] = $("#DGdpDrverICno").val();
+                        arrdpDriverOcc[arrNo] = $("#DGdpDrverOcc").val();
+                        arrdpDateBirth[arrNo] = $("#dpDateBirthDG").val();
+                        arrdpDrverLcnsePassDG[arrNo] = $("#dpDrverLcnsePassDG").val();
+                        arrdpDrverMarStat[arrNo] = $("#DGdpDrverMarStat").val();
+                        arrdpGender[arrNo] = $("#DGdpGender").val();
+                        arrdpRelationship[arrNo] = $("#DGdpRelationship").val();
+                        arrdpNationality[arrNo] = $("#DGdpNationality").val();
+                        arrdpWage[arrNo] = $("#DGdpWage").val();
+                        arrdpRemarks[arrNo] = $("#DGdpRemarks").val();
+                        arrdpRef[arrNo] = $("#DGdpRef").val();
+                        arrdpMonth[arrNo] = $("#DGdpMonth").val();
+                        getDriverDetails(arrNo);
+                    }
+
                     $("#driversParticularDialog").dialog("close");
                     $("#editDriverBtn").show();
+                    $("#removeDriverBtn").show();
+
                 }
                 
-               count++;
+               
                    
                return valid;
                    
             }
         
+            function saveEditedDrivers(){
+                saveDrivers('edit');
+            }
+
 
             function populateDrverName(){
                 $('#Clients_dpDrverName').empty();
@@ -1148,7 +1178,7 @@
                     dialogClass: 'ui-dialog-osx',
                     buttons: {
                         Save: function() {
-                                saveDrivers();
+                                saveDrivers('add');
                                
                             },
                         Cancel: function(){
@@ -1186,7 +1216,7 @@
                     dialogClass: 'ui-dialog-osx',
                     buttons: {
                         Save: function() {
-                                saveDrivers();
+                                saveEditedDrivers();
                                
                             },
                         Cancel: function(){
@@ -1197,17 +1227,17 @@
                         function(){
                             //alert(arrdpDrverName).index());
 
-                            $('#DGdpDrverName').val();
-                            $('#DGdpDrverICno').val('');
-                            $('#DGdpDrverOcc').val('');
-                            $('#dpDateBirthDG').val('');
-                            $('#dpDrverLcnsePassDG').val('');
-                            $('#DGdpDrverMarStat').val('');
-                            $('#DGdpRelationship').val('');
-                            $('#DGdpWage').val('');
-                            $('#DGdpRemarks').val('');
-                            $('#DGdpRef').val('');
-                            $('#DGdpMonth').val('');
+                            $('#DGdpDrverName').val(arrdpDrverName[arrNo]);
+                            $('#DGdpDrverICno').val(arrdpDrverICno[arrNo]);
+                            $('#DGdpDrverOcc').val(arrdpDriverOcc[arrNo]);
+                            $('#dpDateBirthDG').val(arrdpDateBirth[arrNo]);
+                            $('#dpDrverLcnsePassDG').val(arrdpDrverLcnsePassDG[arrNo]);
+                            $('#DGdpDrverMarStat').val(arrdpDrverMarStat[arrNo]);
+                            $('#DGdpRelationship').val(arrdpRelationship[arrNo]);
+                            $('#DGdpWage').val(arrdpWage[arrNo]);
+                            $('#DGdpRemarks').val(arrdpRemarks[arrNo]);
+                            $('#DGdpRef').val(arrdpRef[arrNo]);
+                            $('#DGdpMonth').val(arrdpMonth[arrNo]);
 
                         }
 
@@ -1222,7 +1252,7 @@
             function editDriver(){
                 $('#addDriverBtn').attr("id","SaveDriverBtn");
                 $('#SaveDriverBtn').attr("src","<?php echo Yii::app()->request->baseUrl; ?>/images/btn_save.png");
-                $('#SaveDriverBtn').attr("onClick","saveDrivers()");
+                $('#SaveDriverBtn').attr("onClick","saveDrivers('add')");
                 $('#editDriverBtn').attr("id","cancelDriverBtn");
                 $('#cancelDriverBtn').attr("src","<?php echo Yii::app()->request->baseUrl; ?>/images/btn_cnl.png");
                 $('#cancelDriverBtn').attr("onClick","cancelBtn()")
@@ -1231,7 +1261,38 @@
                  
 
 
-            }                        
+            }      
+
+            function removeDrivers(){
+                if(count > 0){
+                    arrdpDrverName.splice(0,1);
+                    arrdpDrverICno.splice(0,1);
+                    arrdpDriverOcc.splice(0,1);
+                    arrdpDateBirth.splice(0,1);
+                    arrdpDrverLcnsePassDG.splice(0,1);
+                    arrdpDrverMarStat.splice(0,1);
+                    arrdpGender.splice(0,1);
+                    arrdpRelationship.splice(0,1);
+                    arrdpNationality.splice(0,1);
+                    arrdpWage.splice(0,1);
+                    arrdpRemarks.splice(0,1);
+                    arrdpRef.splice(0,1);
+                    arrdpMonth.splice(0,1);
+                   
+                    count--;
+                    
+                    paginate(count);
+                    getDriverDetails(count-1);
+                   
+                }
+                if(count == 0){
+                    paginate(0);
+                    $("#removeDriverBtn").hide();
+                    $("#editDriverBtn").hide();
+                }
+
+
+            }                  
             
             function cancelBtn(){
                 $('#SaveDriverBtn').attr("id","addDriverBtn");
@@ -1266,7 +1327,7 @@
                 $('#Clients_dpWage').val(arrdpWage[arrNo]);
                 $('#Clients_dpRemarks').val(arrdpRemarks[arrNo]);
                 $('#Clients_dpRef').val(arrdpRef[arrNo]);
-                $('#Clients_dpMonth').val(arrdpMonth[arrdpNationality]);
+                $('#Clients_dpMonth').val(arrdpMonth[arrdpMonth]);
 
             }
 

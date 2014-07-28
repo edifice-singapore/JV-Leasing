@@ -20,9 +20,7 @@ $this->breadcrumbs=array(
 	  
 	  	$this->renderPartial('_form', array('model'=>$model,
 									'dataProvider'=>$dataProvider,
-									'driversModel'=>$driversModel,
-		         					'pages' => $pages,
-		         					//'count'=> $count,
+									
 									'dpDriverparticular'=>$dpDriverparticular,
 									//'jsonDriverParticular'=>json_encode($result),
 							));

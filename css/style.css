@@ -131,10 +131,10 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 		right:0;
 		background-color: #f4880a ;
 	}
-	
+
 	.header{
-		width: 1200px;	
-		height: 97px;		
+		width: 1200px;
+		height: 97px;
 		z-index: 2;
 		position: absolute;
 		left: 50%;
@@ -143,10 +143,10 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 		padding: 0;
 		background-color: #fff;
 	}
-	
+
 	.header2{
-		width: 900px;	
-		height: 97px;		
+		width: 900px;
+		height: 97px;
 		z-index: 2;
 		position: absolute;
 		left: 50%;
@@ -155,29 +155,29 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 		padding: 0;
 		background-color: #fff;
 	}
-	
+
 		.logo{
 			width: 221px;
-			height: 111px;	
+			height: 111px;
 			background: url(../images/jvsleasing.png) no-repeat right 0;
 			float: left;
 		}
-	
+
 		.logo2{
 			width: 272px;
-			height: 188px;	
+			height: 188px;
 			background: url(../images/logo.png) no-repeat right 0;
 			margin: 30px auto;
 		}
-	
-	
+
+
 		.logo3{
 			width: 160px;
-			height: 111px;	
+			height: 111px;
 			background: url(../images/jvsleasing.png) no-repeat right 0;
 			float: left;
 		}
-	
+
 		.navigation{
 			width: 907px;
 			height: 41px;
@@ -186,14 +186,14 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 			background: url(../images/bg_navi.jpg) no-repeat left 0;
 			float: right;
 		}
-	
+
 			.navigation .nav{
 				/*float: right;
 				margin: 0 160px 0 0;*/
 				position: absolute;
 				right: 160px;
 			}
-	
+
 			.navigation .nav li{
 				height: 29px;
 				float: left;
@@ -204,20 +204,20 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 				font-size: 14px;
 				text-transform: uppercase;
 			}
-	
+
 			.navigation .nav li:hover,
 			.navigation .nav li.active{
 				color:#333;
 			}
 
 .bannertext{
-	width: 900px; 
-	position:absolute; 
-	top:230px; 
-	left:50%; 
+	width: 900px;
+	position:absolute;
+	top:230px;
+	left:50%;
 	margin-left:-450px;
 	padding:5px;
-	color:#fff; 
+	color:#fff;
 	font-family: 'OswaldBook';
 	font-size: 60px;
 	text-align: center;
@@ -225,13 +225,13 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 }
 
 .subbannertext{
-	width: 1080px; 
-	position:absolute; 
-	top:115px; 
-	left:50%; 
+	width: 1080px;
+	position:absolute;
+	top:115px;
+	left:50%;
 	margin-left:-540px;
 	padding:5px;
-	color:#fff; 
+	color:#fff;
 	font-family: 'OswaldBook';
 	font-size: 60px;
 	text-align: left;
@@ -240,7 +240,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 
 .wrapper{
 	width:1080px;
-	margin: 82px auto;	
+	margin: 82px auto;
 	min-height: 470px;
 	padding-top: 60px;
 	font-family: 'Merriweather Sans', sans-serif;
@@ -279,7 +279,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 	.grey_border_table td.alignleft{
 		text-align: left;
 	}
-	
+
 	.grey_border_table th{
 		padding: 8px 5px 5px;
 		border-right: 1px solid #ddd;
@@ -287,33 +287,33 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 		text-align: center;
 		background-color: #e5e5e5;
 	}
-	
+
 	 .grey_border_table td{
 		padding: 8px 5px 5px;
 		border-right: 1px solid #ddd;
 		border-bottom: 1px solid #ddd;
 		text-align: center;
 	}
-	
+
 	 .grey_border_table .bgred{
 		background-color: #c36a5c;
 	}
-	
+
 		.grey_border_table .bgred td{
 			border-right: 1px solid #B45656;
 			border-bottom: 1px solid #B45656;
 		}
 
-	
+
 	.grey_border_table .bgyel{
 		background-color: #f3da8d;
 	}
-	
+
 		.grey_border_table .bgyel td{
 			border-right: 1px solid #D3BF54;
 			border-bottom: 1px solid #D3BF54;
 		}
-	
+
 		.grey_border_table td td{
 			border:0
 		}
@@ -376,7 +376,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 .login input[type="text"]{
 	width:295px;
 	height: 30px;
-	border: 2px solid #141414; 
+	border: 2px solid #141414;
 	margin-bottom: 20px;
 	padding: 0 5px;
 	font-size: 14px;
@@ -386,7 +386,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 .login input[type="password"]{
 	width:295px;
 	height: 30px;
-	border: 2px solid #141414; 
+	border: 2px solid #141414;
 	margin-bottom: 20px;
 	padding: 0 5px;
 	font-size: 14px;
@@ -394,7 +394,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 }
 
 .logout{
-	position: absolute; 
+	position: absolute;
 	right: 72px;
 	top: 25px;
 	font-size: 12px;
@@ -442,7 +442,7 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 .btn_quote:hover{
 	background-color:#555;
 }
-	
+
 	.btn_quote li{
 		min-height: 23px;
 		font-size: 16px;
@@ -472,30 +472,30 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 .btn_submit:hover{
 	background-color:#555;
 }
-	
+
 .text_field{
-	border: 1px solid #949494; 
+	border: 1px solid #949494;
 	width: 245px;
 	cursor: text;
 	height: 20px;
 }
-	
+
 .drop{
 	border: 1px solid #949494;
 	width: 247px;
 	height: 24px;
 	font-size:11px;
 }
-	
+
 .text_area{
-	border: 1px solid #949494; 
+	border: 1px solid #949494;
 	width: 408px;
 	height: 110px;
 	resize:none;
 	cursor: text;
 	font-family:Arial, Helvetica, sans-serif;
 }
-	
+
 .contact_form td{vertical-align:middle; min-height: 40px}
 
 .textfield{
@@ -555,22 +555,22 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 	float: right;
 }
 /*========== ========== ========== ========== FOOTER ========== ========== ========== ==========*/
-.footer_wrapper{ 
+.footer_wrapper{
 	width:100%;
 	height:50px;
 	border-top: 2px solid #f49b0f;
-	font-size:10px; 
+	font-size:10px;
 	margin-top: 79px;
 }
-.footer{ 
+.footer{
 	width:100%;
 	padding-top:10px;
 	border-top: 2px solid #ffd594;
 }
-.footer a{ 
+.footer a{
 	color: #8d8d8d;
 }
-.footer a:hover{ 
+.footer a:hover{
 	color: #444;
 }
 
@@ -586,3 +586,13 @@ ul{margin:0; padding:0; overflow:hidden; list-style-type:none;}
 .btn{float: right; margin:0 0 0 10px}
 .alignright{text-align: right;}
 
+
+.errorField{
+	border: 1px solid red;
+}
+
+.inline-error{
+	font-size:11px;
+	font-style: italic;
+	color: red;
+}

@@ -89,6 +89,7 @@
                             <td width="200">Nationality:</td>
                             <td>
                                 <?php 
+<<<<<<< HEAD
                                     echo $form->dropDownList($model,'nationality',array(
                                                         '0'=>'--- Choose Type ---',
                                                         '1'=>'Singaporean',
@@ -101,6 +102,15 @@
                                 ?>
                                 <?php echo $form->error($model,'nationality', array('style'=> 'color:red;')); ?>
 
+=======
+                                    echo $form->dropDownList($model,'nationality',array('0'=>'--- Choose Type ---','1'=>'Singaporean','2'=>'American',
+                                                            '3'=>'Filipino'), 
+                                                        array('options' => array('0'=>array('selected'=>true)), 'class'=>'selectmenu')
+                                                        );
+                                   // echo $form->textField($model,'nationality',array('size'=>30,'maxlength'=>30));                                
+                                ?>
+                                <?php echo $form->error($model,'nationality', array('style'=> 'color:red;')); ?>
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
                             </td>
                         </tr>
                         <tr>
@@ -756,8 +766,13 @@
             </tr>
             <tr>
                 <td colspan="3">
+<<<<<<< HEAD
                   
                     <a href=""><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_createclient.png" /></div></a>
+=======
+                  <!--  <a href="#"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_add2.png" /></div></a> ---->
+                    <a href="create?s=a"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_createclient.png" /></div></a>
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
                 </td>
             </tr>
             
@@ -1381,6 +1396,7 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<<<<<<< HEAD
 <div id="addnewbroker" class="reveal-modal">
             <div style="background-color: #eeeeee; margin-top: 3px;padding: 10px 20px;"><h5>Add  <span style="color:#254078">New Broker</span></h5></div>
             <div style="width: 450px;margin: 30px auto 50px;">
@@ -1430,6 +1446,9 @@
             </div>
             <a class="close-reveal-modal">&#215;</a>
         </div>
+=======
+
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 
    
     

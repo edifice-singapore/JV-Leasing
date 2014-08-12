@@ -79,7 +79,10 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
+<<<<<<< HEAD
 			//'enableParamLogging' => true,
+=======
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 		),
 
 

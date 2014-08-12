@@ -36,11 +36,14 @@ class BrokerController extends Controller
 		}
 
 	}
+<<<<<<< HEAD
 	public function actionIndex()
 	{
 		$this->render('list');
 
 	}
+=======
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 
 	public function actionList()
 	{
@@ -50,7 +53,11 @@ class BrokerController extends Controller
 	public function actionAjaxList()
 	{
 		$this->layout=false;
+<<<<<<< HEAD
 		$cpage   = (isset($_GET['page'])) ? $_GET['page']:1;
+=======
+		$cpage   = (isset($_GET['page']))?$_GET['page']:1;
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 		$criteria = new CDbCriteria();
 
 		if( !empty($_GET['search_name']) ){

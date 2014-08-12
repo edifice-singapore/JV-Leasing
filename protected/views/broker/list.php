@@ -27,7 +27,11 @@
                                 <td><input id="search_email" name="search_email" type="text" class="textfield" /></td>
                             </tr>
                             <tr>
+<<<<<<< HEAD
                                 <td colspan="2"><a href="" onclick="return searchBroker()"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_search.png" /></div></a></td>
+=======
+                                <td colspan="2"><a href="#" onclick="return searchBroker()"><div class="btn"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/btn_search.png" /></div></a></td>
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
                             </tr>
                         </table>
                     </td>

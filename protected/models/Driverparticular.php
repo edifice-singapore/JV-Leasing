@@ -14,11 +14,18 @@
  * @property integer $dp_gender
  * @property string $dp_relationship
  * @property string $dp_nationality
+<<<<<<< HEAD
  * @property integer $dp_wage
  * @property string $dp_remarks
  * @property string $dp_ref
  * @property string $dp_month
  * @property integer $fk_client_id
+=======
+ * @property string $dp_wage
+ * @property string $dp_remarks
+ * @property string $dp_ref
+ * @property string $dp_month
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
  */
 class Driverparticular extends CActiveRecord
 {
@@ -38,6 +45,7 @@ class Driverparticular extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+<<<<<<< HEAD
 			array('fk_client_id', 'required'),
 			array('dp_gender, dp_wage, fk_client_id', 'numerical', 'integerOnly'=>true),
 			array('dp_Name, dp_remarks, dp_ref', 'length', 'max'=>100),
@@ -49,6 +57,18 @@ class Driverparticular extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('dp_id, dp_Name, dp_icno, dp_occ, dp_dateBirth, dp_licPassDate, dp_maritalStatus, dp_gender, dp_relationship, dp_nationality, dp_wage, dp_remarks, dp_ref, dp_month, fk_client_id', 'safe', 'on'=>'search'),
+=======
+			array('dp_Name, dp_icno, dp_occ, dp_dateBirth, dp_licPassDate, dp_maritalStatus, dp_gender, dp_relationship, dp_nationality, dp_wage, dp_remarks, dp_ref, dp_month', 'required'),
+			array('dp_gender', 'numerical', 'integerOnly'=>true),
+			array('dp_Name, dp_remarks', 'length', 'max'=>100),
+			array('dp_icno, dp_occ', 'length', 'max'=>30),
+			array('dp_maritalStatus, dp_wage', 'length', 'max'=>10),
+			array('dp_relationship', 'length', 'max'=>20),
+			array('dp_nationality, dp_ref', 'length', 'max'=>50),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('dp_id, dp_Name, dp_icno, dp_occ, dp_dateBirth, dp_licPassDate, dp_maritalStatus, dp_gender, dp_relationship, dp_nationality, dp_wage, dp_remarks, dp_ref, dp_month', 'safe', 'on'=>'search'),
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 		);
 	}
 
@@ -83,7 +103,10 @@ class Driverparticular extends CActiveRecord
 			'dp_remarks' => 'Dp Remarks',
 			'dp_ref' => 'Dp Ref',
 			'dp_month' => 'Dp Month',
+<<<<<<< HEAD
 			'fk_client_id' => 'Fk Client',
+=======
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 		);
 	}
 
@@ -115,11 +138,18 @@ class Driverparticular extends CActiveRecord
 		$criteria->compare('dp_gender',$this->dp_gender);
 		$criteria->compare('dp_relationship',$this->dp_relationship,true);
 		$criteria->compare('dp_nationality',$this->dp_nationality,true);
+<<<<<<< HEAD
 		$criteria->compare('dp_wage',$this->dp_wage);
 		$criteria->compare('dp_remarks',$this->dp_remarks,true);
 		$criteria->compare('dp_ref',$this->dp_ref,true);
 		$criteria->compare('dp_month',$this->dp_month,true);
 		$criteria->compare('fk_client_id',$this->fk_client_id);
+=======
+		$criteria->compare('dp_wage',$this->dp_wage,true);
+		$criteria->compare('dp_remarks',$this->dp_remarks,true);
+		$criteria->compare('dp_ref',$this->dp_ref,true);
+		$criteria->compare('dp_month',$this->dp_month,true);
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

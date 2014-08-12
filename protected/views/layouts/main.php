@@ -87,7 +87,11 @@
 			                        <li><a href="#">Brokers</a>
 			                            <ul style="display:none">
 			                                <li><a href="brokersreport.html">Broker's Report</a></li>
+<<<<<<< HEAD
 			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/broker/add" class="big-link" data-reveal-id="add-broker" data-animation="none">Add New broker</a></li>
+=======
+			                                <li><a href="#" class="big-link" data-reveal-id="add-broker" data-animation="none">Add New broker</a></li>
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/broker/list">View all brokers</a></li>
 			                            </ul>
 			                        </li>
@@ -97,9 +101,15 @@
 			                    <ul>
 			                        <li><a href="#">Clients</a>
 			                            <ul style="display:none">
+<<<<<<< HEAD
 			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/client/index">Renewal</a></li>
 			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/client/create" class="active">Add New client</a></li>
 			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/client/list">View all clients</a></li>
+=======
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/index">Renewal</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/create" class="active">Add New client</a></li>
+			                                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/clients/viewallclients.html">View all clients</a></li>
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 			                            </ul>
 			                        </li>
 			                    </ul>
@@ -136,6 +146,7 @@
 
 		</div><!-- footer -->
 	</div>
+<<<<<<< HEAD
 	
 	<div id="addnewbroker" class="reveal-modal">
             <div style="background-color: #eeeeee; margin-top: 3px;padding: 10px 20px;"><h5>Add  <span style="color:#254078">New Broker</span></h5></div>
@@ -186,6 +197,9 @@
             </div>
             <a class="close-reveal-modal">&#215;</a>
         </div>
+=======
+
+>>>>>>> f363c04641c6bd97f2e0092b96b1a4740b20ca46
 
 
 </body>
